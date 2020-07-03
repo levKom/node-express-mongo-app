@@ -1,22 +1,36 @@
-//
-// const PORT = process.env.PORT || 3000;
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+require("dotenv/config");
+
+const PORT = process.env.SERVER_PORT || 3000;
 
 const app = express();
-//mongodb+srv://komd:1q2w3e4r@cluster0.nisvf.mongodb.net/rest
+
+//Middlewares
+app.use(cors());
+app.use(bodyParser.json());
+
+//Import Routes
+const postsRoute = require("./routes/posts");
+
+app.use("/posts", postsRoute);
 
 //ROUTES
 app.get("/", (req, res) => {
-  res.send("we are on home");
-});
-
-app.get("/posts", (req, res) => {
-  res.send("we are on posts");
+  res.send('<a href="/">Home </a><a href="/posts">Posts </a><br>we are on home');
 });
 
 //Connect to DB
-mongoose.connect("mongodb+srv://komd:1q2w3e4r@cluster0.nisvf.mongodb.net/rest", () => console.log("Connected to DB"));
+mongoose.connect(
+  process.env.DB_CONNECTION,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  },
+  () => console.log("Connected to DB")
+);
 
 //listening to the server
-app.listen(3000);
+app.listen(PORT);
