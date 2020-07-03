@@ -1,0 +1,28 @@
+{
+  "name": "express-mongo-app",
+  "version": "1.0.0",
+  "description": "simple node.js app with express and mongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/levKom/node-express-mongo-app.git"
+  },
+  "author": "Dmytro Komlev <komlev.mitya2011@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/levKom/node-express-mongo-app/issues"
+  },
+  "homepage": "https://github.com/levKom/node-express-mongo-app#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.20"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  }
+}
