@@ -14,8 +14,10 @@ app.use(bodyParser.json());
 
 //Import Routes
 const postsRoute = require("./routes/posts");
+const timerRoute = require("./routes/timer");
 
 app.use("/posts", postsRoute);
+app.use("/timer", timerRoute);
 
 //ROUTES
 app.get("/", (req, res) => {
